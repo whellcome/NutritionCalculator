@@ -8,8 +8,8 @@ This application is under construction
 * <strike>Calculation for multiple users.</strike> (Done)
 * <strike>Product database</strike> (Done)
 * Dish database
-* Calculation of the amount of carbohydrates and the dose of insulin based on the selected foods and dishes
+* _Calculation of the amount of carbohydrates and the dose of insulin based on the selected foods and dishes_ __(Partially resolved)__
 
 ## Route map:
-* Implement a mobile application form
 * Implement a web application
+* Implement a mobile application form
