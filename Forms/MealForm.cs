@@ -1,12 +1,6 @@
 ﻿using NutritionCalculator.Controllers;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NutritionCalculator.Forms
@@ -14,7 +8,7 @@ namespace NutritionCalculator.Forms
     public partial class MealForm : Form
     {
         private MealsController mealsController = new MealsController();
-        private FoodsController foodsController = new FoodsController(); //TODO: to NutritionsController
+        private readonly NutrientsController NutrientsController = new NutrientsController();
         public MealForm()
         {
             InitializeComponent();
@@ -27,7 +21,7 @@ namespace NutritionCalculator.Forms
         }
         private void eventDataSelected(Form sender, NCEventArgs e)
         {
-            if (sender.GetType() == typeof(FoodsForm))
+            if (sender.GetType() == typeof(IngredientsForm))
             {
                 uint index = uint.Parse(e.Message);
                 addMealItem(index);
@@ -43,15 +37,15 @@ namespace NutritionCalculator.Forms
             {
                 if (items.SingleOrDefault(i => i.Nutrient.Id == index) == null)
                 {
-                    var food = foodsController.Foods.SingleOrDefault(f => f.Id == index);
-                    items.Add(mealsController.SetNewItem(food, 0));
+                    var nutrient = NutrientsController.Nutrients.SingleOrDefault(f => f.Id == index);
+                    items.Add(mealsController.SetNewItem(nutrient, 0));
                     MealItemsRefresh();
                 }
             }
             else
             {
-                var food = foodsController.Foods.SingleOrDefault(f => f.Id == index);
-                items.Add(mealsController.SetNewItem(food, 0));
+                var nutrient = NutrientsController.Nutrients.SingleOrDefault(f => f.Id == index);
+                items.Add(mealsController.SetNewItem(nutrient, 0));
                 MealItemsRefresh();
             }
         }
@@ -60,8 +54,8 @@ namespace NutritionCalculator.Forms
         {
             if (dgvMealItems.CurrentCell.ColumnIndex == 0)
             {
-                FoodsForm foodsForm = new FoodsForm();
-                foodsForm.Show();
+                IngredientsForm ingredientsForm = new IngredientsForm();
+                ingredientsForm.Show();
             }
         }
 
@@ -79,6 +73,7 @@ namespace NutritionCalculator.Forms
 
         private void btSave_Click(object sender, EventArgs e)
         {
+            mealsController.CurrentMeal.LocalDateTime = dtpMealDateTime.Value;
             mealsController.SetNew();
         }
     }

@@ -87,6 +87,7 @@
     <Compile Include="Controllers\IDataController.cs" />
     <Compile Include="Controllers\InsulinPlanController.cs" />
     <Compile Include="Controllers\MealsController.cs" />
+    <Compile Include="Controllers\NutrientsController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Forms\CategoriesForm.cs">
       <SubType>Form</SubType>
@@ -99,6 +100,12 @@
     </Compile>
     <Compile Include="Forms\FoodForm.Designer.cs">
       <DependentUpon>FoodForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\IngredientsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\IngredientsForm.Designer.cs">
+      <DependentUpon>IngredientsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FoodsForm.cs">
       <SubType>Form</SubType>
@@ -154,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FoodForm.resx">
       <DependentUpon>FoodForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\IngredientsForm.resx">
+      <DependentUpon>IngredientsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FoodsForm.resx">
       <DependentUpon>FoodsForm.cs</DependentUpon>

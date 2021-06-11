@@ -1,5 +1,4 @@
-﻿
-using NutritionCalculator.Controllers;
+﻿using NutritionCalculator.Controllers;
 using NutritionCalculator.Models;
 using System;
 

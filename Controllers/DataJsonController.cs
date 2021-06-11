@@ -19,7 +19,10 @@ namespace NutritionCalculator.Controllers
                     string item;
                     while ((item = sr.ReadLine()) != null)
                     {
-                        items.Add(JsonConvert.DeserializeObject<T>(item));
+                        items.Add(JsonConvert.DeserializeObject<T>(item, new JsonSerializerSettings
+                        {
+                            TypeNameHandling = TypeNameHandling.Auto
+                        }));
                     }
                     return items;
                 }
@@ -34,7 +37,12 @@ namespace NutritionCalculator.Controllers
             {
                 foreach (T item in items)
                 {
-                    sw.WriteLine(JsonConvert.SerializeObject(item));
+                    sw.WriteLine(JsonConvert.SerializeObject(item, new JsonSerializerSettings
+                    {
+                        TypeNameHandling = TypeNameHandling.Auto
+                    }));
+
+
                 }
             }
         }

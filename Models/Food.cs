@@ -1,5 +1,4 @@
 ﻿
-
 namespace NutritionCalculator.Models
 {
     public class Food : Nutrient

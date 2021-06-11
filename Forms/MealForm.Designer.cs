@@ -95,7 +95,6 @@ namespace NutritionCalculator.Forms
             // dtpMealDateTime
             // 
             this.dtpMealDateTime.CustomFormat = "dd.MM.yyy : hh.mm";
-            this.dtpMealDateTime.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.mealsBindingSource, "LocalDateTime", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "g"));
             this.dtpMealDateTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpMealDateTime.Location = new System.Drawing.Point(13, 71);
             this.dtpMealDateTime.Margin = new System.Windows.Forms.Padding(4);

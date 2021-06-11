@@ -1,5 +1,4 @@
-﻿
-using NodaTime;
+﻿using System;
 using System.Collections.Generic;
 
 namespace NutritionCalculator.Models
@@ -10,6 +9,6 @@ namespace NutritionCalculator.Models
         public uint UserId { get; set; }
         public List<Ingredient> MealItems { get; set; }
         public string Name { get; set; }
-        public LocalDateTime LocalDateTime { get; set; }
+        public DateTime LocalDateTime { get; set; }
     }
 }
