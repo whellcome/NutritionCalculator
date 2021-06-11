@@ -7,7 +7,7 @@ namespace NutritionCalculator.Forms
     public partial class InsulinPlanForm : Form
     {
         private bool editMode { get; }
-        private InsulinPlanController InsulinPlanController { get; set; }
+        private InsulinPlanController InsulinPlanController = new InsulinPlanController();
         public InsulinPlanForm(bool editMode = false)
         {
             InitializeComponent();
@@ -16,15 +16,15 @@ namespace NutritionCalculator.Forms
 
         private void InsulinPlanForm_Load(object sender, EventArgs e)
         {
-            InsulinPlanController = new InsulinPlanController();
             tbName.Text = InsulinPlanController.CurrentInsulinPlan.Name;
+            tbName.Text = string.IsNullOrWhiteSpace(tbName.Text) ? "Insulin plan" : tbName.Text;
             RefreshGridView();
         }
 
         private void btSave_Click(object sender, EventArgs e)
         {
             InsulinPlanController.CurrentInsulinPlan.Name = tbName.Text;
-            InsulinPlanController.CurrentInsulinPlan.User = NCData.CurrentUser;
+            InsulinPlanController.CurrentInsulinPlan.UserId = NCData.CurrentUser.Id;
             if (editMode)
                 InsulinPlanController.Update(InsulinPlanController.CurrentInsulinPlan);
             else

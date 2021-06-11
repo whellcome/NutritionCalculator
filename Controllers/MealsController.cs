@@ -28,6 +28,15 @@ namespace NutritionCalculator.Controllers
         public void SetNew()
         {
             CurrentMeal.Id = (uint)DateTime.Now.Subtract(new DateTime(2021, 1, 1)).TotalSeconds;
+            CurrentMeal.UserId = NCData.CurrentUser.Id;
+            CurrentMeal.Name = "|";
+            foreach (var item in CurrentMeal.MealItems)
+            {
+                CurrentMeal.Name += $"{ item.Nutrient.Name}:{item.Amount}|";
+            }
+            
+            Meals.Add(CurrentMeal);
+            Save();
         }
 
         public Ingredient SetNewItem(Nutrient nutrient, double amount)

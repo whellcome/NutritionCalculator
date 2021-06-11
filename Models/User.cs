@@ -6,6 +6,7 @@ namespace NutritionCalculator.Models
     public class User
     {
         #region Properties
+        public uint Id { get; set; }    
         public string Name { get; set; }
         public LocalDate BirthDate { get; set; }
         public uint InsulinPlan { get; set; }
@@ -13,9 +14,9 @@ namespace NutritionCalculator.Models
         public double Height { get; set; }
         public bool UnitSystemMgdL { get; set; }
         public bool GlutenFree { get; set; }
-        public bool CalculateCalories { get; set; }
+        
         #endregion
-        public User(string name, LocalDate birthDate, InsulinPlan insulinPlan, double weight, double height, bool unitSystemMgdL, bool glutenFree, bool calculateCalories)
+        public User(string name, LocalDate birthDate, InsulinPlan insulinPlan, double weight, double height, bool unitSystemMgdL, bool glutenFree)
         {
             Name = name ?? throw new ArgumentNullException(nameof(name));
             BirthDate = birthDate;
@@ -24,7 +25,7 @@ namespace NutritionCalculator.Models
             Height = height;
             UnitSystemMgdL = unitSystemMgdL;
             GlutenFree = glutenFree;
-            CalculateCalories = calculateCalories;
+            
         }
 
         public User()

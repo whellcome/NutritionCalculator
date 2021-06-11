@@ -43,7 +43,7 @@ namespace NutritionCalculator.Forms
             if (food != null)
             {
                 foodsController.CurrentFood = food;
-                categoriesController.CurrentCategory = food.Categorie;
+                categoriesController.CurrentCategory = categoriesController.Categories.SingleOrDefault(c => c.Id == food.CategorieId);
                 lbCategory.Text = categoriesController.CurrentCategory.Name;
                 txtName.Text = food.Name;
                 txtArt.Text = food.Kind;
@@ -59,31 +59,31 @@ namespace NutritionCalculator.Forms
         private void txtCarbohydrates_KeyPress(object sender, KeyPressEventArgs e)
         {
             var number = e.KeyChar;
-            if (!Char.IsDigit(number)) e.Handled = true;
+            if (!(char.IsDigit(number) || char.IsControl(number) || number == ',')) e.Handled = true;
         }
 
         private void txtProteins_KeyPress(object sender, KeyPressEventArgs e)
         {
             var number = e.KeyChar;
-            if (!Char.IsDigit(number)) e.Handled = true;    
+            if (!(char.IsDigit(number) || char.IsControl(number) || number == ',')) e.Handled = true;
         }
 
         private void txtFats_KeyPress(object sender, KeyPressEventArgs e)
         {
             var number = e.KeyChar;
-            if (!Char.IsDigit(number)) e.Handled = true;
+            if (!(char.IsDigit(number) || char.IsControl(number) || number == ',')) e.Handled = true;
         }
 
         private void txtCalories_KeyPress(object sender, KeyPressEventArgs e)
         {
             var number = e.KeyChar;
-            if (!Char.IsDigit(number)) e.Handled = true;
+            if (!(char.IsDigit(number) || char.IsControl(number) || number == ',')) e.Handled = true;
         }
 
         private void txtGlycemicIndex_KeyPress(object sender, KeyPressEventArgs e)
         {
             var number = e.KeyChar;
-            if (!Char.IsDigit(number)) e.Handled = true;
+            if (!(char.IsDigit(number) || char.IsControl(number) || number == ',')) e.Handled = true;
         }
 
         private void btSave_Click(object sender, EventArgs e)

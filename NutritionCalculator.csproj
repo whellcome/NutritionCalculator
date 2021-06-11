@@ -88,12 +88,6 @@
     <Compile Include="Controllers\InsulinPlanController.cs" />
     <Compile Include="Controllers\MealsController.cs" />
     <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="Forms\CalculateForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CalculateForm.Designer.cs">
-      <DependentUpon>CalculateForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\CategoriesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,9 +149,6 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\CalculateForm.resx">
-      <DependentUpon>CalculateForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\CategoriesForm.resx">
       <DependentUpon>CategoriesForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -13,7 +13,7 @@ namespace NutritionCalculator.Forms
             
         }
         private FoodsController foodsController = new FoodsController();
-
+        private CategoriesController categoriesController = new CategoriesController();
         private void FoodsForm_Load(object sender, EventArgs e)
         {
             ListViewExtender extender = new ListViewExtender(lvFoods);
@@ -25,7 +25,7 @@ namespace NutritionCalculator.Forms
             extender.AddColumn(buttonAction);
             foreach (Food food in foodsController.Foods)
             {
-                var row = new string[] { food.Categorie.ToString(), food.ToString() };
+                var row = new string[] { categoriesController.GetCategory(food.CategorieId).ToString(), food.ToString() };
                 var lvi = new ListViewItem(row);
                 lvi.Tag = food;
                 lvFoods.Items.Add(lvi).SubItems.Add("...");

@@ -1,5 +1,6 @@
 ﻿using NodaTime;
 using NutritionCalculator.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -33,21 +34,40 @@ namespace NutritionCalculator.Controllers
             }
         }
 
-        public void SetNew(string name, LocalDate birthDate, InsulinPlan insulinPlan, double weight, double height, bool unitSystemMgdL, bool glutenFree, bool calculateCalories)
+        public void SetNew(string name, DateTime birthDate, object insulinPlan, string txtWeight, string txtHeight,
+                           bool unitSystemMgdL, bool glutenFree)
         {
-            CurrentUser = new User(name, birthDate, insulinPlan, weight, height, unitSystemMgdL, glutenFree, calculateCalories);
+            var localDate = LocalDateTime.FromDateTime(birthDate);
+            if (!double.TryParse(txtWeight, out double weight)) weight = 0;
+            if (!double.TryParse(txtHeight, out double height)) height = 0;
+            CurrentUser = new User(name, localDate.Date, (InsulinPlan)insulinPlan, weight, height, unitSystemMgdL, glutenFree)
+            {
+                Id = (uint)DateTime.Now.Subtract(new DateTime(2021, 1, 1)).TotalSeconds
+            };
             Users.Add(CurrentUser);
             Save();
-            NCData.CurrentUser = CurrentUser;
         }
 
-        public void Update(string name, LocalDate birthDate, InsulinPlan insulinPlan, double weight, double height, bool unitSystemMgdL, bool glutenFree, bool calculateCalories)
+        public void Update(string name, DateTime birthDate, object insulinPlan, string txtWeight, string txtHeight,
+                           bool unitSystemMgdL, bool glutenFree)
         {
-            var index = Users.FindIndex(u => u.Name == CurrentUser.Name && u.BirthDate == CurrentUser.BirthDate);
-            CurrentUser = new User(name, birthDate, insulinPlan, weight, height, unitSystemMgdL, glutenFree, calculateCalories);
+            var localDate = LocalDateTime.FromDateTime(birthDate);
+            if (!double.TryParse(txtWeight, out double weight)) weight = 0;
+            if (!double.TryParse(txtHeight, out double height)) height = 0;
+            var plan = (InsulinPlan)insulinPlan;
+            var index = Users.FindIndex(u => u.Id == CurrentUser.Id);
+            
+            CurrentUser.Name = name;
+            CurrentUser.BirthDate = localDate.Date;
+            CurrentUser.InsulinPlan = plan.Id;
+            CurrentUser.Weight = weight;
+            CurrentUser.Height = height;
+            CurrentUser.UnitSystemMgdL = unitSystemMgdL;
+            CurrentUser.GlutenFree = glutenFree;
+
             Users[index] = CurrentUser;
             Save();
-            NCData.CurrentUser = CurrentUser;
+            
         }
 
         public List<User> GetUsersData()

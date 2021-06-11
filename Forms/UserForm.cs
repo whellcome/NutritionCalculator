@@ -30,20 +30,20 @@ namespace NutritionCalculator.Forms
                 tbHeight.Text = currentUser.Height.ToString();
                 rbUnitSystem1.Checked = currentUser.UnitSystemMgdL;
                 cbGlutenFree.Checked = currentUser.GlutenFree;
-                cbCalculateCalories.Checked = currentUser.CalculateCalories;
+                
             }
         }
 
         private void tbWeight_KeyPress(object sender, KeyPressEventArgs e)
         {
             var number = e.KeyChar;
-            if (!Char.IsDigit(number)) e.Handled = true;
+            if (!(char.IsDigit(number) || char.IsControl(number) || number == ',')) e.Handled = true;
         }
 
         private void tbHeight_KeyPress(object sender, KeyPressEventArgs e)
         {
             var number = e.KeyChar;
-            if (!Char.IsDigit(number)) e.Handled = true;
+            if (!(char.IsDigit(number) || char.IsControl(number) || number == ',')) e.Handled = true;
         }
 
         private void btAddInsulinPlan_Click(object sender, EventArgs e)
@@ -64,17 +64,14 @@ namespace NutritionCalculator.Forms
         }
         private void NewUserSave()
         {
-            var localDate = LocalDateTime.FromDateTime(dtBirthDate.Value);
-            userController.SetNew(tbUserName.Text, localDate.Date, (Models.InsulinPlan)cbInsulinPlan.SelectedItem, Int32.Parse(tbWeight.Text),
-                                          Int32.Parse(tbHeight.Text), rbUnitSystem1.Checked, cbGlutenFree.Checked,
-                                          cbCalculateCalories.Checked);
+            userController.SetNew(tbUserName.Text, dtBirthDate.Value, cbInsulinPlan.SelectedItem, tbWeight.Text,
+                                  tbHeight.Text, rbUnitSystem1.Checked, cbGlutenFree.Checked);
+
         }
         private void UserUpdate()
         {
-            var localDate = LocalDateTime.FromDateTime(dtBirthDate.Value);
-            userController.Update(tbUserName.Text, localDate.Date, (Models.InsulinPlan)cbInsulinPlan.SelectedItem, Int32.Parse(tbWeight.Text),
-                                      Int32.Parse(tbHeight.Text), rbUnitSystem1.Checked, cbGlutenFree.Checked,
-                                      cbCalculateCalories.Checked);
+            userController.Update(tbUserName.Text, dtBirthDate.Value, cbInsulinPlan.SelectedItem, tbWeight.Text,
+                                  tbHeight.Text, rbUnitSystem1.Checked, cbGlutenFree.Checked);
         }
     }
 }

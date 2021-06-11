@@ -7,7 +7,7 @@ namespace NutritionCalculator.Models
     public class Meal
     {
         public uint Id { get; set; }
-        private User User { get; set; }
+        public uint UserId { get; set; }
         public List<Ingredient> MealItems { get; set; }
         public string Name { get; set; }
         public LocalDateTime LocalDateTime { get; set; }

@@ -7,14 +7,18 @@ namespace NutritionCalculator.Models
     {
         public uint Id { get; set; }
         
-        public User User { get; set; }
+        public uint UserId { get; set; }
         
         public string Name { get; set; }
         public List<InsulinPlanItem> Plan { get; set; }
         public InsulinPlan(User user)
         {
-            User = user;
+            UserId = user.Id;
             Plan = new List<InsulinPlanItem>();
+        }
+
+        public InsulinPlan()
+        {
         }
 
         public override string ToString()

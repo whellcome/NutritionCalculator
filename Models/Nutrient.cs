@@ -4,7 +4,7 @@
     {
         public uint Id { get; set; }
         public string Name { get; set; }
-        public Category Categorie { get; set; }
+        public uint CategorieId { get; set; }
         public string Description { get; set; }
         public double Carbohydrates { get; set; }
         public double Proteins { get; set; }

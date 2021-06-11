@@ -38,7 +38,7 @@ namespace NutritionCalculator.Controllers
 
                 food.Name = name;
                 food.Kind = art;
-                food.Categorie = category;
+                food.CategorieId = category.Id;
                 food.Description = description;
                 food.Carbohydrates = double.Parse(carbohydrates);
                 food.Proteins = double.Parse(proteins);
@@ -54,7 +54,7 @@ namespace NutritionCalculator.Controllers
                     Id = (uint)DateTime.Now.Subtract(new DateTime(2021, 1, 1)).TotalSeconds,
                     Name = name,
                     Kind = art,
-                    Categorie = category,
+                    CategorieId = category.Id,
                     Description = description,
                     Carbohydrates = double.Parse(carbohydrates),
                     Proteins = double.Parse(proteins),

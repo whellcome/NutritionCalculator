@@ -76,5 +76,10 @@ namespace NutritionCalculator.Forms
             lbConsist.Text = mealsController.getEnergyValues();
             lbConsist.Text += "\n\nRecommended insulin dose: " + InsulinPlanController.GetInsulinDose(dtpMealDateTime.Value, mealsController.GetCarbohydrates());
         }
+
+        private void btSave_Click(object sender, EventArgs e)
+        {
+            mealsController.SetNew();
+        }
     }
 }

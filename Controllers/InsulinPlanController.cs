@@ -15,7 +15,7 @@ namespace NutritionCalculator.Controllers
         {
             
             InsulinPlans = GetInsulinPlans();
-            UserInsulinPlans = InsulinPlans.FindAll(i => i.User.Name == NCData.CurrentUser.Name && i.User.BirthDate == NCData.CurrentUser.BirthDate);
+            UserInsulinPlans = InsulinPlans.FindAll(i => i.UserId == NCData.CurrentUser.Id);
             if (UserInsulinPlans.Count <= 0)
             {
                 CurrentInsulinPlan = new InsulinPlan(NCData.CurrentUser);
@@ -49,9 +49,8 @@ namespace NutritionCalculator.Controllers
         public void Update(InsulinPlan insulinPlan)
         {
             var currentInsulinPlan = UserInsulinPlans.SingleOrDefault(i => i.Id == NCData.CurrentUser.InsulinPlan);
-            var index = InsulinPlans.FindIndex(i => i.User == currentInsulinPlan.User && i.Id == currentInsulinPlan.Id);
+            var index = InsulinPlans.FindIndex(i => i.Id == currentInsulinPlan.Id);
             InsulinPlans[index] = insulinPlan;
-            NCData.CurrentUser.InsulinPlan = insulinPlan.Id;
             Save();
         }
 
