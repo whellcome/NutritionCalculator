@@ -19,7 +19,7 @@ namespace NutritionCalculator.Forms
 
         private void btSelectCategory_Click(object sender, EventArgs e)
         {
-            CategoriesForm categoriesForm = new CategoriesForm(false);
+            CategoriesForm categoriesForm = new CategoriesForm(NCData.GetNewFormPoint(this,355), false);
             categoriesForm.Show();
         }
         private void eventDataSelected(Form sender, NCEventArgs args)

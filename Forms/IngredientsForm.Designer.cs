@@ -47,7 +47,7 @@ namespace NutritionCalculator.Forms
             this.lvIngredients.HideSelection = false;
             this.lvIngredients.Location = new System.Drawing.Point(0, 0);
             this.lvIngredients.Name = "lvIngredients";
-            this.lvIngredients.Size = new System.Drawing.Size(416, 609);
+            this.lvIngredients.Size = new System.Drawing.Size(414, 609);
             this.lvIngredients.TabIndex = 0;
             this.lvIngredients.UseCompatibleStateImageBehavior = false;
             this.lvIngredients.View = System.Windows.Forms.View.Details;
@@ -71,7 +71,7 @@ namespace NutritionCalculator.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(416, 609);
+            this.ClientSize = new System.Drawing.Size(414, 609);
             this.Controls.Add(this.lvIngredients);
             this.Name = "IngredientsForm";
             this.Text = "IngredientsForm";

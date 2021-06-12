@@ -54,7 +54,7 @@ namespace NutritionCalculator.Forms
         {
             if (dgvMealItems.CurrentCell.ColumnIndex == 0)
             {
-                IngredientsForm ingredientsForm = new IngredientsForm();
+                IngredientsForm ingredientsForm = new IngredientsForm(NCData.GetNewFormPoint(this, 430));
                 ingredientsForm.Show();
             }
         }

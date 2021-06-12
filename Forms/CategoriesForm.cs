@@ -1,5 +1,6 @@
 ﻿using NutritionCalculator.Controllers;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace NutritionCalculator.Forms
@@ -12,6 +13,13 @@ namespace NutritionCalculator.Forms
         {
             InitializeComponent();
             Editable = editable;
+        }
+        public CategoriesForm(Point pt, bool editable = true)
+        {
+            InitializeComponent();
+            Editable = editable;
+            StartPosition = FormStartPosition.Manual;
+            Location = pt;
         }
 
         private void CategoriesForm_Load(object sender, EventArgs e)

@@ -1,16 +1,20 @@
 ﻿using NutritionCalculator.Controllers;
 using NutritionCalculator.Models;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace NutritionCalculator.Forms
 {
     public partial class IngredientsForm : Form
     {
-        public IngredientsForm()
+        public IngredientsForm(Point pt)
         {
             InitializeComponent();
-            
+            StartPosition = FormStartPosition.Manual;
+            Location = pt;
+
+
         }
         private readonly NutrientsController NutrientsController = new NutrientsController();
         private readonly CategoriesController CategoriesController = new CategoriesController();
