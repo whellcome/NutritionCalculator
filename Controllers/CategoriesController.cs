@@ -19,7 +19,7 @@ namespace NutritionCalculator.Controllers
         {
             var newCat = new Category
             {
-                Id = (uint)DateTime.Now.Subtract(new DateTime(2021, 1, 1)).TotalSeconds
+                Id = NCData.GetId()
             };
             return newCat;
         }

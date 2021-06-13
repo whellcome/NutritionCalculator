@@ -31,17 +31,17 @@ namespace NutritionCalculator.Forms
         {
             this.components = new System.ComponentModel.Container();
             this.dgvMealItems = new System.Windows.Forms.DataGridView();
+            this.nutrientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mealItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mealsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mealsControllerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dtpMealDateTime = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.btSave = new System.Windows.Forms.Button();
             this.lbUser = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lbConsist = new System.Windows.Forms.Label();
-            this.mealsControllerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nutrientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMealItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mealItemsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mealsBindingSource)).BeginInit();
@@ -62,7 +62,21 @@ namespace NutritionCalculator.Forms
             this.dgvMealItems.Size = new System.Drawing.Size(381, 390);
             this.dgvMealItems.TabIndex = 0;
             this.dgvMealItems.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMealItems_CellEndEdit);
-            this.dgvMealItems.Click += new System.EventHandler(this.dgvMealItems_Click);
+            this.dgvMealItems.DoubleClick += new System.EventHandler(this.dgvMealItems_Click);
+            // 
+            // nutrientDataGridViewTextBoxColumn
+            // 
+            this.nutrientDataGridViewTextBoxColumn.DataPropertyName = "Nutrient";
+            this.nutrientDataGridViewTextBoxColumn.HeaderText = "Nutrient";
+            this.nutrientDataGridViewTextBoxColumn.Name = "nutrientDataGridViewTextBoxColumn";
+            this.nutrientDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nutrientDataGridViewTextBoxColumn.Width = 238;
+            // 
+            // amountDataGridViewTextBoxColumn
+            // 
+            this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
+            this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
+            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
             // 
             // mealItemsBindingSource
             // 
@@ -73,6 +87,10 @@ namespace NutritionCalculator.Forms
             // 
             this.mealsBindingSource.DataMember = "Meals";
             this.mealsBindingSource.DataSource = this.mealsControllerBindingSource;
+            // 
+            // mealsControllerBindingSource
+            // 
+            this.mealsControllerBindingSource.DataSource = typeof(NutritionCalculator.Controllers.MealsController);
             // 
             // dtpMealDateTime
             // 
@@ -131,24 +149,6 @@ namespace NutritionCalculator.Forms
             this.lbConsist.Size = new System.Drawing.Size(50, 16);
             this.lbConsist.TabIndex = 6;
             this.lbConsist.Text = "consist";
-            // 
-            // mealsControllerBindingSource
-            // 
-            this.mealsControllerBindingSource.DataSource = typeof(NutritionCalculator.Controllers.MealsController);
-            // 
-            // nutrientDataGridViewTextBoxColumn
-            // 
-            this.nutrientDataGridViewTextBoxColumn.DataPropertyName = "Nutrient";
-            this.nutrientDataGridViewTextBoxColumn.HeaderText = "Nutrient";
-            this.nutrientDataGridViewTextBoxColumn.Name = "nutrientDataGridViewTextBoxColumn";
-            this.nutrientDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nutrientDataGridViewTextBoxColumn.Width = 238;
-            // 
-            // amountDataGridViewTextBoxColumn
-            // 
-            this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
-            this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
-            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
             // 
             // MealForm
             // 

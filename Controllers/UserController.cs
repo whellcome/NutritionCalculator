@@ -42,7 +42,7 @@ namespace NutritionCalculator.Controllers
             if (!double.TryParse(txtHeight, out double height)) height = 0;
             CurrentUser = new User(name, localDate.Date, (InsulinPlan)insulinPlan, weight, height, unitSystemMgdL, glutenFree)
             {
-                Id = (uint)DateTime.Now.Subtract(new DateTime(2021, 1, 1)).TotalSeconds
+                Id = NCData.GetId()
             };
             Users.Add(CurrentUser);
             Save();

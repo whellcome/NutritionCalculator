@@ -85,6 +85,7 @@
     <Compile Include="Controllers\DishesController.cs" />
     <Compile Include="Controllers\FoodsController.cs" />
     <Compile Include="Controllers\IDataController.cs" />
+    <Compile Include="Controllers\IngredientsController.cs" />
     <Compile Include="Controllers\InsulinPlanController.cs" />
     <Compile Include="Controllers\MealsController.cs" />
     <Compile Include="Controllers\NutrientsController.cs" />
@@ -94,6 +95,18 @@
     </Compile>
     <Compile Include="Forms\CategoriesForm.Designer.cs">
       <DependentUpon>CategoriesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DishesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DishesForm.Designer.cs">
+      <DependentUpon>DishesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DishForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DishForm.Designer.cs">
+      <DependentUpon>DishForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FoodForm.cs">
       <SubType>Form</SubType>
@@ -159,6 +172,12 @@
     <EmbeddedResource Include="Forms\CategoriesForm.resx">
       <DependentUpon>CategoriesForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DishesForm.resx">
+      <DependentUpon>DishesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DishForm.resx">
+      <DependentUpon>DishForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FoodForm.resx">
       <DependentUpon>FoodForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,8 +213,12 @@
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\NutritionCalculator.Controllers.CategoriesController.datasource" />
+    <None Include="Properties\DataSources\NutritionCalculator.Controllers.DishesController.datasource" />
     <None Include="Properties\DataSources\NutritionCalculator.Controllers.FoodsController.datasource" />
+    <None Include="Properties\DataSources\NutritionCalculator.Controllers.IngredientsController.datasource" />
     <None Include="Properties\DataSources\NutritionCalculator.Controllers.MealsController.datasource" />
+    <None Include="Properties\DataSources\NutritionCalculator.Models.Dish.datasource" />
+    <None Include="Properties\DataSources\NutritionCalculator.Models.Ingredient.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

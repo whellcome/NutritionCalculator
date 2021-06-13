@@ -30,5 +30,9 @@ namespace NutritionCalculator
             pt.Y = form.Location.Y;
             return pt;
         }
+        public static uint GetId()
+        {
+            return (uint)DateTime.Now.Subtract(new DateTime(2021, 1, 1)).TotalSeconds + (uint)DateTime.Now.Millisecond;
+        }
     }
 }

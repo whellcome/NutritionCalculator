@@ -10,6 +10,7 @@ namespace NutritionCalculator.Controllers
         public User CurrentUser { get; set; }
         public List<Meal> Meals { get; set; }
         public Meal CurrentMeal { get; set; }
+        private readonly IngredientsController IngredientsController = new IngredientsController();
         public MealsController()
         {
             CurrentUser = NCData.CurrentUser ?? throw new ArgumentNullException(typeof(User).ToString());
@@ -18,14 +19,14 @@ namespace NutritionCalculator.Controllers
             {
                 MealItems = new List<Ingredient>
                 {
-                    SetNewItem()
+                    IngredientsController.SetNewItem()
                 }
             };
         }
 
         public void SetNew()
         {
-            CurrentMeal.Id = (uint)DateTime.Now.Subtract(new DateTime(2021, 1, 1)).TotalSeconds;
+            CurrentMeal.Id = NCData.GetId();
             CurrentMeal.UserId = NCData.CurrentUser.Id;
             CurrentMeal.Name = "|";
             foreach (var item in CurrentMeal.MealItems)
@@ -37,14 +38,6 @@ namespace NutritionCalculator.Controllers
             Save();
         }
 
-        public Ingredient SetNewItem(Nutrient nutrient, double amount)
-        {
-            return new Ingredient(nutrient, amount);
-        }
-        public Ingredient SetNewItem()
-        {
-            return new Ingredient();
-        }
         public double GetCarbohydrates()
         {
             double result = 0;

@@ -51,7 +51,7 @@ namespace NutritionCalculator.Controllers
             {
                 Food newFood = new Food()
                 {
-                    Id = (uint)DateTime.Now.Subtract(new DateTime(2021, 1, 1)).TotalSeconds,
+                    Id = NCData.GetId(),
                     Name = name,
                     Kind = art,
                     CategorieId = category.Id,

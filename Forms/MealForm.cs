@@ -7,8 +7,9 @@ namespace NutritionCalculator.Forms
 {
     public partial class MealForm : Form
     {
-        private MealsController mealsController = new MealsController();
+        private readonly MealsController mealsController = new MealsController();
         private readonly NutrientsController NutrientsController = new NutrientsController();
+        private readonly IngredientsController IngredientsController = new IngredientsController();
         public MealForm()
         {
             InitializeComponent();
@@ -38,14 +39,14 @@ namespace NutritionCalculator.Forms
                 if (items.SingleOrDefault(i => i.Nutrient.Id == index) == null)
                 {
                     var nutrient = NutrientsController.Nutrients.SingleOrDefault(f => f.Id == index);
-                    items.Add(mealsController.SetNewItem(nutrient, 0));
+                    items.Add(IngredientsController.SetNewItem(nutrient, 0));
                     MealItemsRefresh();
                 }
             }
             else
             {
                 var nutrient = NutrientsController.Nutrients.SingleOrDefault(f => f.Id == index);
-                items.Add(mealsController.SetNewItem(nutrient, 0));
+                items.Add(IngredientsController.SetNewItem(nutrient, 0));
                 MealItemsRefresh();
             }
         }

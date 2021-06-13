@@ -33,6 +33,7 @@ namespace NutritionCalculator.Forms
             this.btCategories = new System.Windows.Forms.Button();
             this.btFoods = new System.Windows.Forms.Button();
             this.btMeal = new System.Windows.Forms.Button();
+            this.btDishes = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonSelectUser
@@ -82,11 +83,24 @@ namespace NutritionCalculator.Forms
             this.btMeal.UseVisualStyleBackColor = true;
             this.btMeal.Click += new System.EventHandler(this.btMeal_Click);
             // 
+            // btDishes
+            // 
+            this.btDishes.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btDishes.Location = new System.Drawing.Point(13, 180);
+            this.btDishes.Margin = new System.Windows.Forms.Padding(4);
+            this.btDishes.Name = "btDishes";
+            this.btDishes.Size = new System.Drawing.Size(290, 58);
+            this.btDishes.TabIndex = 4;
+            this.btDishes.Text = "Dishes";
+            this.btDishes.UseVisualStyleBackColor = true;
+            this.btDishes.Click += new System.EventHandler(this.btDishes_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(316, 554);
+            this.Controls.Add(this.btDishes);
             this.Controls.Add(this.btMeal);
             this.Controls.Add(this.btFoods);
             this.Controls.Add(this.btCategories);
@@ -107,5 +121,6 @@ namespace NutritionCalculator.Forms
         private System.Windows.Forms.Button btCategories;
         private System.Windows.Forms.Button btFoods;
         private System.Windows.Forms.Button btMeal;
+        private System.Windows.Forms.Button btDishes;
     }
 }

@@ -48,5 +48,11 @@ namespace NutritionCalculator.Forms
             MealForm mealForm = new MealForm();
             mealForm.Show();
         }
+
+        private void btDishes_Click(object sender, EventArgs e)
+        {
+            DishesForm dishesForm = new DishesForm();
+            dishesForm.Show();
+        }
     }
 }
