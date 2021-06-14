@@ -7,7 +7,7 @@ This application is under construction
 ## Main tasks for the nearest implementation:
 * <strike>Calculation for multiple users.</strike> (Done)
 * <strike>Product database</strike> (Done)
-* Dish database
+* <strike>Dish database</strike> (Done)
 * _Calculation of the amount of carbohydrates and the dose of insulin based on the selected foods and dishes_ __(Partially resolved)__
 
 ## Route map:
