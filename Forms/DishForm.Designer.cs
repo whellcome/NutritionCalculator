@@ -50,10 +50,14 @@ namespace NutritionCalculator.Forms
             this.btSelectCategory = new System.Windows.Forms.Button();
             this.btSave = new System.Windows.Forms.Button();
             this.dgvIngredients = new System.Windows.Forms.DataGridView();
-            this.ingredientBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dishesControllerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nutrientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ingredientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dishesControllerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txtWastageFactor = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtPortionMass = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIngredients)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ingredientBindingSource)).BeginInit();
@@ -211,7 +215,7 @@ namespace NutritionCalculator.Forms
             this.groupBox1.Controls.Add(this.txtProteins);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtCarbohydrates);
-            this.groupBox1.Location = new System.Drawing.Point(13, 268);
+            this.groupBox1.Location = new System.Drawing.Point(13, 224);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(220, 195);
             this.groupBox1.TabIndex = 16;
@@ -249,7 +253,7 @@ namespace NutritionCalculator.Forms
             // btSave
             // 
             this.btSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btSave.Location = new System.Drawing.Point(16, 481);
+            this.btSave.Location = new System.Drawing.Point(338, 454);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(314, 31);
             this.btSave.TabIndex = 20;
@@ -267,18 +271,10 @@ namespace NutritionCalculator.Forms
             this.dgvIngredients.DataSource = this.ingredientBindingSource;
             this.dgvIngredients.Location = new System.Drawing.Point(338, 75);
             this.dgvIngredients.Name = "dgvIngredients";
-            this.dgvIngredients.Size = new System.Drawing.Size(312, 438);
+            this.dgvIngredients.Size = new System.Drawing.Size(313, 373);
             this.dgvIngredients.TabIndex = 21;
             this.dgvIngredients.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvIngredients_CellDoubleClick);
             this.dgvIngredients.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvIngredients_CellEndEdit);
-            // 
-            // ingredientBindingSource
-            // 
-            this.ingredientBindingSource.DataSource = typeof(NutritionCalculator.Models.Ingredient);
-            // 
-            // dishesControllerBindingSource
-            // 
-            this.dishesControllerBindingSource.DataSource = typeof(NutritionCalculator.Controllers.DishesController);
             // 
             // nutrientDataGridViewTextBoxColumn
             // 
@@ -295,11 +291,55 @@ namespace NutritionCalculator.Forms
             this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
             this.amountDataGridViewTextBoxColumn.Width = 70;
             // 
+            // ingredientBindingSource
+            // 
+            this.ingredientBindingSource.DataSource = typeof(NutritionCalculator.Models.Ingredient);
+            // 
+            // dishesControllerBindingSource
+            // 
+            this.dishesControllerBindingSource.DataSource = typeof(NutritionCalculator.Controllers.DishesController);
+            // 
+            // txtWastageFactor
+            // 
+            this.txtWastageFactor.Location = new System.Drawing.Point(196, 432);
+            this.txtWastageFactor.Name = "txtWastageFactor";
+            this.txtWastageFactor.Size = new System.Drawing.Size(37, 22);
+            this.txtWastageFactor.TabIndex = 22;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 438);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(143, 16);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "Water Wastage Factor";
+            // 
+            // txtPortionMass
+            // 
+            this.txtPortionMass.Location = new System.Drawing.Point(196, 463);
+            this.txtPortionMass.Name = "txtPortionMass";
+            this.txtPortionMass.Size = new System.Drawing.Size(37, 22);
+            this.txtPortionMass.TabIndex = 24;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(13, 469);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(86, 16);
+            this.label10.TabIndex = 25;
+            this.label10.Text = "Portion mass";
+            // 
             // DishForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(662, 525);
+            this.ClientSize = new System.Drawing.Size(662, 493);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.txtPortionMass);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtWastageFactor);
             this.Controls.Add(this.dgvIngredients);
             this.Controls.Add(this.btSave);
             this.Controls.Add(this.btSelectCategory);
@@ -351,5 +391,9 @@ namespace NutritionCalculator.Forms
         private System.Windows.Forms.BindingSource dishesControllerBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn nutrientDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TextBox txtWastageFactor;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtPortionMass;
+        private System.Windows.Forms.Label label10;
     }
 }

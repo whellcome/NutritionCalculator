@@ -35,8 +35,8 @@ namespace NutritionCalculator.Forms
         private void OnButtonActionClick(object sender, ListViewColumnMouseEventArgs e)
         {
             DishForm dishForm = new DishForm(true);
-            var food = (Food)lvDishes.SelectedItems[0].Tag;
-            NCData.DataSelected(this, new NCEventArgs(food.Id.ToString()));
+            var dish = (Dish)lvDishes.SelectedItems[0].Tag;
+            NCData.DataSelected(this, new NCEventArgs(dish.Id.ToString()));
             dishForm.Show();
             Close();
         }

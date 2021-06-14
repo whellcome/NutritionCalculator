@@ -80,13 +80,14 @@ namespace NutritionCalculator.Forms
                 categoriesController.CurrentCategory = categoriesController.Categories.SingleOrDefault(c => c.Id == dish.CategorieId);
                 lbCategory.Text = categoriesController.CurrentCategory.Name;
                 txtName.Text = dish.Name;
-                
                 txtDescription.Text = dish.Description;
                 txtCarbohydrates.Text = dish.Carbohydrates.ToString();
                 txtProteins.Text = dish.Proteins.ToString();
                 txtFats.Text = dish.Fats.ToString();
                 txtCalories.Text = dish.Calories.ToString();
                 txtGlycemicIndex.Text = dish.GlycemicIndex.ToString();
+                txtWastageFactor.Text = dish.WaterWastageFactor.ToString();
+                txtPortionMass.Text = dish.Portion.ToString();
             }
         }
 
@@ -99,7 +100,13 @@ namespace NutritionCalculator.Forms
         private void btSave_Click(object sender, EventArgs e)
         {
             var id = (editMode) ? dishesController.CurrentDish.Id.ToString() : "0";
-            
+            dishesController.SaveOrNew(id, categoriesController.CurrentCategory, txtName.Text,
+                                      txtDescription.Text, txtCarbohydrates.Text, txtProteins.Text, txtFats.Text,
+                                      txtCalories.Text, txtGlycemicIndex.Text, txtWastageFactor.Text, 
+                                      txtPortionMass.Text, dishesController.CurrentDish.Ingredients);
+            DishesForm dishesForm = new DishesForm();
+            dishesForm.Show();
+            Close();
         }
         private void IngredientsRefresh()
         {
