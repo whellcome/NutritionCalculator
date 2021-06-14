@@ -21,10 +21,9 @@ namespace NutritionCalculator.Controllers
                 Ingredients = new List<Ingredient>
                 {
                     IngredientsController.SetNewItem()
-                }
+                },
+                WaterWastageFactor = 1,
             };
-
-            
         }
 
         private List<Dish> GetDishesData()
@@ -42,28 +41,32 @@ namespace NutritionCalculator.Controllers
             double result = 0;
             foreach (var item in CurrentDish.Ingredients)
                 result += item.Nutrient.GetCarbohydrates(item.Amount);
-            return result * factor;
+            return Math.Round(result / factorReview(factor), 2);
         }
         public double GetProteins(double factor = 1)
         {
             double result = 0;
             foreach (var item in CurrentDish.Ingredients)
                 result += item.Nutrient.GetProteins(item.Amount);
-            return result * factor;
+            return Math.Round(result / factorReview(factor),2);
         }
         public double GetFats(double factor = 1)
         {
             double result = 0;
             foreach (var item in CurrentDish.Ingredients)
                 result += item.Nutrient.GetFats(item.Amount);
-            return result * factor;
+            return Math.Round(result / factorReview(factor), 2);
         }
-        public double GetCalories(double factor = 1)
+        public double GetCalories()
         {
             double result = 0;
             foreach (var item in CurrentDish.Ingredients)
                 result += item.Nutrient.GetCalories(item.Amount);
-            return result * factor;
+            return result;
+        }
+        private double factorReview(double factor)
+        {
+            return (factor <= 0 || factor > 1) ? 1 : factor;
         }
         public void SetNew()
         {

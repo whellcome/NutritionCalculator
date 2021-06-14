@@ -113,13 +113,17 @@ namespace NutritionCalculator.Forms
             dgvIngredients.DataSource = null;
             dgvIngredients.DataSource = dishesController.CurrentDish.Ingredients;
         }
-
+        private void EnergyValuesUpdate()
+        {
+            var factor = dishesController.CurrentDish.WaterWastageFactor;
+            txtCarbohydrates.Text = dishesController.GetCarbohydrates(factor).ToString();
+            txtProteins.Text = dishesController.GetProteins(factor).ToString();
+            txtFats.Text = dishesController.GetFats(factor).ToString();
+            txtCalories.Text = dishesController.GetCalories().ToString();
+        }
         private void dgvIngredients_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            txtCarbohydrates.Text = dishesController.GetCarbohydrates().ToString();
-            txtProteins.Text = dishesController.GetProteins().ToString();
-            txtFats.Text = dishesController.GetFats().ToString();
-            txtCalories.Text = dishesController.GetCalories().ToString();
+            EnergyValuesUpdate();
         }
 
         private void dgvIngredients_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -129,6 +133,13 @@ namespace NutritionCalculator.Forms
                 IngredientsForm ingredientsForm = new IngredientsForm(NCData.GetNewFormPoint(this, 430));
                 ingredientsForm.Show();
             }
+        }
+
+        private void txtWastageFactor_TextChanged(object sender, EventArgs e)
+        {
+            var factor = string.IsNullOrWhiteSpace(txtWastageFactor.Text) ? "0" : txtWastageFactor.Text;
+            dishesController.CurrentDish.WaterWastageFactor = double.Parse(factor);
+            EnergyValuesUpdate();
         }
     }
 }

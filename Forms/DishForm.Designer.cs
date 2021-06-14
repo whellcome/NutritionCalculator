@@ -50,14 +50,14 @@ namespace NutritionCalculator.Forms
             this.btSelectCategory = new System.Windows.Forms.Button();
             this.btSave = new System.Windows.Forms.Button();
             this.dgvIngredients = new System.Windows.Forms.DataGridView();
-            this.nutrientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ingredientBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dishesControllerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtWastageFactor = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPortionMass = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.nutrientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ingredientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dishesControllerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIngredients)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ingredientBindingSource)).BeginInit();
@@ -120,7 +120,7 @@ namespace NutritionCalculator.Forms
             this.txtCarbohydrates.Margin = new System.Windows.Forms.Padding(4);
             this.txtCarbohydrates.Name = "txtCarbohydrates";
             this.txtCarbohydrates.ReadOnly = true;
-            this.txtCarbohydrates.Size = new System.Drawing.Size(44, 25);
+            this.txtCarbohydrates.Size = new System.Drawing.Size(63, 25);
             this.txtCarbohydrates.TabIndex = 6;
             // 
             // label5
@@ -140,7 +140,7 @@ namespace NutritionCalculator.Forms
             this.txtProteins.Margin = new System.Windows.Forms.Padding(4);
             this.txtProteins.Name = "txtProteins";
             this.txtProteins.ReadOnly = true;
-            this.txtProteins.Size = new System.Drawing.Size(44, 25);
+            this.txtProteins.Size = new System.Drawing.Size(63, 25);
             this.txtProteins.TabIndex = 8;
             // 
             // label6
@@ -160,7 +160,7 @@ namespace NutritionCalculator.Forms
             this.txtFats.Margin = new System.Windows.Forms.Padding(4);
             this.txtFats.Name = "txtFats";
             this.txtFats.ReadOnly = true;
-            this.txtFats.Size = new System.Drawing.Size(44, 25);
+            this.txtFats.Size = new System.Drawing.Size(63, 25);
             this.txtFats.TabIndex = 10;
             // 
             // label7
@@ -180,7 +180,7 @@ namespace NutritionCalculator.Forms
             this.txtCalories.Margin = new System.Windows.Forms.Padding(4);
             this.txtCalories.Name = "txtCalories";
             this.txtCalories.ReadOnly = true;
-            this.txtCalories.Size = new System.Drawing.Size(44, 25);
+            this.txtCalories.Size = new System.Drawing.Size(63, 25);
             this.txtCalories.TabIndex = 12;
             // 
             // label8
@@ -199,7 +199,7 @@ namespace NutritionCalculator.Forms
             this.txtGlycemicIndex.Location = new System.Drawing.Point(145, 150);
             this.txtGlycemicIndex.Margin = new System.Windows.Forms.Padding(4);
             this.txtGlycemicIndex.Name = "txtGlycemicIndex";
-            this.txtGlycemicIndex.Size = new System.Drawing.Size(44, 25);
+            this.txtGlycemicIndex.Size = new System.Drawing.Size(63, 25);
             this.txtGlycemicIndex.TabIndex = 14;
             this.txtGlycemicIndex.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGlycemicIndex_KeyPress);
             // 
@@ -217,7 +217,7 @@ namespace NutritionCalculator.Forms
             this.groupBox1.Controls.Add(this.txtCarbohydrates);
             this.groupBox1.Location = new System.Drawing.Point(13, 224);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(220, 195);
+            this.groupBox1.Size = new System.Drawing.Size(231, 195);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Energy values";
@@ -276,6 +276,41 @@ namespace NutritionCalculator.Forms
             this.dgvIngredients.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvIngredients_CellDoubleClick);
             this.dgvIngredients.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvIngredients_CellEndEdit);
             // 
+            // txtWastageFactor
+            // 
+            this.txtWastageFactor.Location = new System.Drawing.Point(200, 432);
+            this.txtWastageFactor.Name = "txtWastageFactor";
+            this.txtWastageFactor.Size = new System.Drawing.Size(44, 22);
+            this.txtWastageFactor.TabIndex = 22;
+            this.txtWastageFactor.TextChanged += new System.EventHandler(this.txtWastageFactor_TextChanged);
+            this.txtWastageFactor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGlycemicIndex_KeyPress);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 438);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(143, 16);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "Water Wastage Factor";
+            // 
+            // txtPortionMass
+            // 
+            this.txtPortionMass.Location = new System.Drawing.Point(200, 463);
+            this.txtPortionMass.Name = "txtPortionMass";
+            this.txtPortionMass.Size = new System.Drawing.Size(44, 22);
+            this.txtPortionMass.TabIndex = 24;
+            this.txtPortionMass.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGlycemicIndex_KeyPress);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(13, 469);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(86, 16);
+            this.label10.TabIndex = 25;
+            this.label10.Text = "Portion mass";
+            // 
             // nutrientDataGridViewTextBoxColumn
             // 
             this.nutrientDataGridViewTextBoxColumn.DataPropertyName = "Nutrient";
@@ -298,38 +333,6 @@ namespace NutritionCalculator.Forms
             // dishesControllerBindingSource
             // 
             this.dishesControllerBindingSource.DataSource = typeof(NutritionCalculator.Controllers.DishesController);
-            // 
-            // txtWastageFactor
-            // 
-            this.txtWastageFactor.Location = new System.Drawing.Point(196, 432);
-            this.txtWastageFactor.Name = "txtWastageFactor";
-            this.txtWastageFactor.Size = new System.Drawing.Size(37, 22);
-            this.txtWastageFactor.TabIndex = 22;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 438);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(143, 16);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "Water Wastage Factor";
-            // 
-            // txtPortionMass
-            // 
-            this.txtPortionMass.Location = new System.Drawing.Point(196, 463);
-            this.txtPortionMass.Name = "txtPortionMass";
-            this.txtPortionMass.Size = new System.Drawing.Size(37, 22);
-            this.txtPortionMass.TabIndex = 24;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(13, 469);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(86, 16);
-            this.label10.TabIndex = 25;
-            this.label10.Text = "Portion mass";
             // 
             // DishForm
             // 
