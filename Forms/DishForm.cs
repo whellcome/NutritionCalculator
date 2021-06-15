@@ -119,7 +119,7 @@ namespace NutritionCalculator.Forms
             txtCarbohydrates.Text = dishesController.GetCarbohydrates(factor).ToString();
             txtProteins.Text = dishesController.GetProteins(factor).ToString();
             txtFats.Text = dishesController.GetFats(factor).ToString();
-            txtCalories.Text = dishesController.GetCalories().ToString();
+            txtCalories.Text = dishesController.GetCalories(factor).ToString();
         }
         private void dgvIngredients_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {

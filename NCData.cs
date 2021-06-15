@@ -34,5 +34,28 @@ namespace NutritionCalculator
         {
             return (uint)DateTime.Now.Subtract(new DateTime(2021, 1, 1)).TotalSeconds + (uint)DateTime.Now.Millisecond;
         }
+        public static void GroupListView(ListView lstView, int SubItemIndex)
+        {
+            bool flag = true;
+            foreach (ListViewItem item in lstView.Items)
+            {
+                string groupName = item.SubItems[SubItemIndex].Text;
+                foreach (ListViewGroup lvGroup in lstView.Groups)
+                {
+                    if (lvGroup.Name == groupName)
+                    {
+                        item.Group = lvGroup;
+                        flag = false;
+                    }
+                }
+                if (flag == true)
+                {
+                    ListViewGroup lstGrp = new ListViewGroup(groupName, groupName);
+                    lstView.Groups.Add(lstGrp);
+                    item.Group = lstGrp;
+                }
+                flag = true;
+            }
+        }
     }
 }

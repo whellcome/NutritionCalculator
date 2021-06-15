@@ -166,6 +166,7 @@ namespace NutritionCalculator.Forms
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MealForm";
             this.Text = "MealForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MealForm_FormClosing);
             this.Load += new System.EventHandler(this.MealForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMealItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mealItemsBindingSource)).EndInit();

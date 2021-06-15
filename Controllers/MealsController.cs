@@ -28,10 +28,10 @@ namespace NutritionCalculator.Controllers
         {
             CurrentMeal.Id = NCData.GetId();
             CurrentMeal.UserId = NCData.CurrentUser.Id;
-            CurrentMeal.Name = "|";
+            CurrentMeal.Name = "";
             foreach (var item in CurrentMeal.MealItems)
             {
-                CurrentMeal.Name += $"{ item.Nutrient.Name}:{item.Amount}|";
+                CurrentMeal.Name += $"{item.Nutrient.Name}:{item.Amount}g, ";
             }
             
             Meals.Add(CurrentMeal);

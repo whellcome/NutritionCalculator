@@ -10,5 +10,10 @@ namespace NutritionCalculator.Models
         public List<Ingredient> MealItems { get; set; }
         public string Name { get; set; }
         public DateTime LocalDateTime { get; set; }
+
+        public override string ToString()
+        {
+            return $"{LocalDateTime.ToString("HH:mm")} : {Name}";
+        }
     }
 }

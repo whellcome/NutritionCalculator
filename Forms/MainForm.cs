@@ -24,12 +24,14 @@ namespace NutritionCalculator.Forms
             {
                 buttonSelectUser.Text = $"User: {NCData.CurrentUser.Name} \n" +
                                         $"Change user";
-                btMeal.Enabled = true;
+                //btMeal.Enabled = true;
+                btFoodDairy.Enabled = true;
             }
             else
             {
                 buttonSelectUser.Text = "Select a user";
-                btMeal.Enabled = false;
+                //btMeal.Enabled = false;
+                btFoodDairy.Enabled = false;
             }
             this.Refresh();
         }
@@ -53,6 +55,12 @@ namespace NutritionCalculator.Forms
         {
             DishesForm dishesForm = new DishesForm();
             dishesForm.Show();
+        }
+
+        private void btFoodDairy_Click(object sender, EventArgs e)
+        {
+            MealsForm mealsForm = new MealsForm();
+            mealsForm.Show();
         }
     }
 }

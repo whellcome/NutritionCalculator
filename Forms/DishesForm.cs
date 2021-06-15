@@ -29,7 +29,7 @@ namespace NutritionCalculator.Forms
                 lvi.Tag = dish;
                 lvDishes.Items.Add(lvi).SubItems.Add("...");
             }
-            GroupListView(lvDishes, 0);
+            NCData.GroupListView(lvDishes, 0);
         }
 
         private void OnButtonActionClick(object sender, ListViewColumnMouseEventArgs e)
@@ -41,40 +41,11 @@ namespace NutritionCalculator.Forms
             Close();
         }
 
-        private void GroupListView(ListView lstView, int SubItemIndex)
-        {
-            bool flag = true;
-            foreach (ListViewItem item in lstView.Items)
-            {
-                string groupName = item.SubItems[SubItemIndex].Text;
-                foreach (ListViewGroup lvGroup in lstView.Groups)
-                {
-                    if (lvGroup.Name == groupName)
-                    {
-                        item.Group = lvGroup;
-                        flag = false;
-                    }
-                }
-                if (flag == true)
-                {
-                    ListViewGroup lstGrp = new ListViewGroup(groupName, groupName);
-                    lstView.Groups.Add(lstGrp);
-                    item.Group = lstGrp;
-                }
-                flag = true;
-            }
-        }
         private void btCreate_Click(object sender, EventArgs e)
         {
             DishForm dishForm = new DishForm();
             dishForm.Show();
             Close();
-        }
-
-        private void lvFoods_DoubleClick(object sender, EventArgs e)
-        {
-            var dish = (Dish)lvDishes.SelectedItems[0].Tag;
-            NCData.DataSelected(this, new NCEventArgs(dish.Id.ToString()));
         }
     }
 }

@@ -30,7 +30,7 @@ namespace NutritionCalculator.Forms
                 lvi.Tag = food;
                 lvFoods.Items.Add(lvi).SubItems.Add("...");
             }
-            GroupListView(lvFoods, 0);
+            NCData.GroupListView(lvFoods, 0);
         }
 
         private void OnButtonActionClick(object sender, ListViewColumnMouseEventArgs e)
@@ -41,30 +41,6 @@ namespace NutritionCalculator.Forms
             foodForm.Show();
             //foodsController.Save(); // TODO: in case of deletion from the list
             Close();
-        }
-
-        private void GroupListView(ListView lstView, int SubItemIndex)
-        {
-            bool flag = true;
-            foreach (ListViewItem item in lstView.Items)
-            {
-                string groupName = item.SubItems[SubItemIndex].Text;
-                foreach (ListViewGroup lvGroup in lstView.Groups)
-                {
-                    if (lvGroup.Name == groupName)
-                    {
-                        item.Group = lvGroup;
-                        flag = false;
-                    }
-                }
-                if (flag == true)
-                {
-                    ListViewGroup lstGrp = new ListViewGroup(groupName, groupName);
-                    lstView.Groups.Add(lstGrp);
-                    item.Group = lstGrp;
-                }
-                flag = true;
-            }
         }
 
         private void btCreate_Click(object sender, EventArgs e)

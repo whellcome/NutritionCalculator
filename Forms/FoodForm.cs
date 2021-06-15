@@ -62,30 +62,6 @@ namespace NutritionCalculator.Forms
             if (!(char.IsDigit(number) || char.IsControl(number) || number == ',')) e.Handled = true;
         }
 
-        private void txtProteins_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            var number = e.KeyChar;
-            if (!(char.IsDigit(number) || char.IsControl(number) || number == ',')) e.Handled = true;
-        }
-
-        private void txtFats_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            var number = e.KeyChar;
-            if (!(char.IsDigit(number) || char.IsControl(number) || number == ',')) e.Handled = true;
-        }
-
-        private void txtCalories_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            var number = e.KeyChar;
-            if (!(char.IsDigit(number) || char.IsControl(number) || number == ',')) e.Handled = true;
-        }
-
-        private void txtGlycemicIndex_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            var number = e.KeyChar;
-            if (!(char.IsDigit(number) || char.IsControl(number) || number == ',')) e.Handled = true;
-        }
-
         private void btSave_Click(object sender, EventArgs e)
         {
             var id = (editMode) ? foodsController.CurrentFood.Id.ToString() : "0";

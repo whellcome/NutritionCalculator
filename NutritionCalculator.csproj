@@ -139,6 +139,12 @@
     <Compile Include="Forms\MealForm.Designer.cs">
       <DependentUpon>MealForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MealsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MealsForm.Designer.cs">
+      <DependentUpon>MealsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="NCData.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
@@ -195,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MealForm.resx">
       <DependentUpon>MealForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MealsForm.resx">
+      <DependentUpon>MealsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>

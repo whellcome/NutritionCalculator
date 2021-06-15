@@ -57,7 +57,7 @@ namespace NutritionCalculator.Forms
             // 
             this.txtName.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.txtName.Location = new System.Drawing.Point(139, 70);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(192, 25);
             this.txtName.TabIndex = 0;
@@ -149,7 +149,7 @@ namespace NutritionCalculator.Forms
             this.txtProteins.Name = "txtProteins";
             this.txtProteins.Size = new System.Drawing.Size(44, 25);
             this.txtProteins.TabIndex = 8;
-            this.txtProteins.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProteins_KeyPress);
+            this.txtProteins.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCarbohydrates_KeyPress);
             // 
             // label6
             // 
@@ -169,7 +169,7 @@ namespace NutritionCalculator.Forms
             this.txtFats.Name = "txtFats";
             this.txtFats.Size = new System.Drawing.Size(44, 25);
             this.txtFats.TabIndex = 10;
-            this.txtFats.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFats_KeyPress);
+            this.txtFats.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCarbohydrates_KeyPress);
             // 
             // label7
             // 
@@ -189,7 +189,7 @@ namespace NutritionCalculator.Forms
             this.txtCalories.Name = "txtCalories";
             this.txtCalories.Size = new System.Drawing.Size(44, 25);
             this.txtCalories.TabIndex = 12;
-            this.txtCalories.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCalories_KeyPress);
+            this.txtCalories.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCarbohydrates_KeyPress);
             // 
             // label8
             // 
@@ -209,7 +209,7 @@ namespace NutritionCalculator.Forms
             this.txtGlycemicIndex.Name = "txtGlycemicIndex";
             this.txtGlycemicIndex.Size = new System.Drawing.Size(44, 25);
             this.txtGlycemicIndex.TabIndex = 14;
-            this.txtGlycemicIndex.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGlycemicIndex_KeyPress);
+            this.txtGlycemicIndex.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCarbohydrates_KeyPress);
             // 
             // groupBox1
             // 
@@ -286,7 +286,7 @@ namespace NutritionCalculator.Forms
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtName);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FoodForm";
             this.Text = "FoodForm";
             this.groupBox1.ResumeLayout(false);

@@ -14,7 +14,6 @@ namespace NutritionCalculator.Forms
             StartPosition = FormStartPosition.Manual;
             Location = pt;
 
-
         }
         private readonly NutrientsController NutrientsController = new NutrientsController();
         private readonly CategoriesController CategoriesController = new CategoriesController();
@@ -29,31 +28,7 @@ namespace NutritionCalculator.Forms
                 };
                 lvIngredients.Items.Add(lvi);
             }
-            GroupListView(lvIngredients, 0);
-        }
-
-        private void GroupListView(ListView lstView, int SubItemIndex)
-        {
-            bool flag = true;
-            foreach (ListViewItem item in lstView.Items)
-            {
-                string groupName = item.SubItems[SubItemIndex].Text;
-                foreach (ListViewGroup lvGroup in lstView.Groups)
-                {
-                    if (lvGroup.Name == groupName)
-                    {
-                        item.Group = lvGroup;
-                        flag = false;
-                    }
-                }
-                if (flag == true)
-                {
-                    ListViewGroup lstGrp = new ListViewGroup(groupName, groupName);
-                    lstView.Groups.Add(lstGrp);
-                    item.Group = lstGrp;
-                }
-                flag = true;
-            }
+            NCData.GroupListView(lvIngredients, 0);
         }
 
         private void lvFoods_DoubleClick(object sender, EventArgs e)

@@ -32,8 +32,8 @@ namespace NutritionCalculator.Forms
             this.buttonSelectUser = new System.Windows.Forms.Button();
             this.btCategories = new System.Windows.Forms.Button();
             this.btFoods = new System.Windows.Forms.Button();
-            this.btMeal = new System.Windows.Forms.Button();
             this.btDishes = new System.Windows.Forms.Button();
+            this.btFoodDairy = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonSelectUser
@@ -51,7 +51,7 @@ namespace NutritionCalculator.Forms
             // btCategories
             // 
             this.btCategories.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btCategories.Location = new System.Drawing.Point(13, 446);
+            this.btCategories.Location = new System.Drawing.Point(13, 319);
             this.btCategories.Margin = new System.Windows.Forms.Padding(4);
             this.btCategories.Name = "btCategories";
             this.btCategories.Size = new System.Drawing.Size(290, 58);
@@ -63,7 +63,7 @@ namespace NutritionCalculator.Forms
             // btFoods
             // 
             this.btFoods.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btFoods.Location = new System.Drawing.Point(13, 97);
+            this.btFoods.Location = new System.Drawing.Point(13, 165);
             this.btFoods.Margin = new System.Windows.Forms.Padding(4);
             this.btFoods.Name = "btFoods";
             this.btFoods.Size = new System.Drawing.Size(290, 58);
@@ -72,21 +72,10 @@ namespace NutritionCalculator.Forms
             this.btFoods.UseVisualStyleBackColor = true;
             this.btFoods.Click += new System.EventHandler(this.btFoods_Click);
             // 
-            // btMeal
-            // 
-            this.btMeal.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btMeal.Location = new System.Drawing.Point(13, 381);
-            this.btMeal.Name = "btMeal";
-            this.btMeal.Size = new System.Drawing.Size(290, 58);
-            this.btMeal.TabIndex = 3;
-            this.btMeal.Text = "Meal";
-            this.btMeal.UseVisualStyleBackColor = true;
-            this.btMeal.Click += new System.EventHandler(this.btMeal_Click);
-            // 
             // btDishes
             // 
             this.btDishes.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btDishes.Location = new System.Drawing.Point(13, 180);
+            this.btDishes.Location = new System.Drawing.Point(13, 243);
             this.btDishes.Margin = new System.Windows.Forms.Padding(4);
             this.btDishes.Name = "btDishes";
             this.btDishes.Size = new System.Drawing.Size(290, 58);
@@ -95,13 +84,25 @@ namespace NutritionCalculator.Forms
             this.btDishes.UseVisualStyleBackColor = true;
             this.btDishes.Click += new System.EventHandler(this.btDishes_Click);
             // 
+            // btFoodDairy
+            // 
+            this.btFoodDairy.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btFoodDairy.Location = new System.Drawing.Point(13, 90);
+            this.btFoodDairy.Name = "btFoodDairy";
+            this.btFoodDairy.Size = new System.Drawing.Size(290, 58);
+            this.btFoodDairy.TabIndex = 5;
+            this.btFoodDairy.Text = "Food Dairy";
+            this.btFoodDairy.UseVisualStyleBackColor = true;
+            this.btFoodDairy.Click += new System.EventHandler(this.btFoodDairy_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(316, 554);
+            this.BackColor = System.Drawing.Color.AliceBlue;
+            this.ClientSize = new System.Drawing.Size(316, 395);
+            this.Controls.Add(this.btFoodDairy);
             this.Controls.Add(this.btDishes);
-            this.Controls.Add(this.btMeal);
             this.Controls.Add(this.btFoods);
             this.Controls.Add(this.btCategories);
             this.Controls.Add(this.buttonSelectUser);
@@ -120,7 +121,7 @@ namespace NutritionCalculator.Forms
         private System.Windows.Forms.Button buttonSelectUser;
         private System.Windows.Forms.Button btCategories;
         private System.Windows.Forms.Button btFoods;
-        private System.Windows.Forms.Button btMeal;
         private System.Windows.Forms.Button btDishes;
+        private System.Windows.Forms.Button btFoodDairy;
     }
 }

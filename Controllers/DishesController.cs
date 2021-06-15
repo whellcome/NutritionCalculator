@@ -41,28 +41,33 @@ namespace NutritionCalculator.Controllers
             double result = 0;
             foreach (var item in CurrentDish.Ingredients)
                 result += item.Nutrient.GetCarbohydrates(item.Amount);
-            return Math.Round(result / factorReview(factor), 2);
+            return Math.Round(result / factorReview(factor), 1);
         }
         public double GetProteins(double factor = 1)
         {
             double result = 0;
             foreach (var item in CurrentDish.Ingredients)
                 result += item.Nutrient.GetProteins(item.Amount);
-            return Math.Round(result / factorReview(factor),2);
+            return Math.Round(result / factorReview(factor),1);
         }
         public double GetFats(double factor = 1)
         {
             double result = 0;
             foreach (var item in CurrentDish.Ingredients)
                 result += item.Nutrient.GetFats(item.Amount);
-            return Math.Round(result / factorReview(factor), 2);
+            return Math.Round(result / factorReview(factor), 1);
         }
-        public double GetCalories()
+
+        public double GetCalories(double factor = 1)
         {
+            //Zum Kalkulieren Kalorien würde es besser die Formel benutzen:
+            //Kohlenhydrates*4*0,956+Fette*9*0,94+Eiweiße*4*0,84+OrgSäuren*3+Alkohol*7+MehrwertAlkohol*2,4 
+            // TODO: realisieren das in einer zukünftigen Version
+
             double result = 0;
             foreach (var item in CurrentDish.Ingredients)
                 result += item.Nutrient.GetCalories(item.Amount);
-            return result;
+            return Math.Round(result / factorReview(factor), 1);
         }
         private double factorReview(double factor)
         {

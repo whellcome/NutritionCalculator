@@ -1,4 +1,5 @@
-﻿using NutritionCalculator.Controllers;
+﻿using NodaTime;
+using NutritionCalculator.Controllers;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -10,10 +11,12 @@ namespace NutritionCalculator.Forms
         private readonly MealsController mealsController = new MealsController();
         private readonly NutrientsController NutrientsController = new NutrientsController();
         private readonly IngredientsController IngredientsController = new IngredientsController();
-        public MealForm()
+        private bool viewMode;
+        public MealForm(bool viewMode = false)
         {
             InitializeComponent();
             NCData.DataSelected = new NCData.EventHandler<Form, NCEventArgs>(eventDataSelected);
+            this.viewMode = viewMode;
         }
         private void MealForm_Load(object sender, EventArgs e)
         {
@@ -26,6 +29,24 @@ namespace NutritionCalculator.Forms
             {
                 uint index = uint.Parse(e.Message);
                 addMealItem(index);
+            }
+            else if (sender.GetType() == typeof(MealsForm))
+            {
+                uint index = uint.Parse(e.Message);
+                fillForm(index);
+                MealItemsRefresh();
+                ConsistTextRefresh();
+                Enabled = !viewMode;
+            }
+        }
+
+        private void fillForm(uint index)
+        {
+            var meal = mealsController.Meals.SingleOrDefault(m => m.Id == index);
+            if (meal != null)
+            {
+                mealsController.CurrentMeal = meal;
+                dtpMealDateTime.Value = DateTime.Parse(meal.LocalDateTime.ToString());
             }
         }
 
@@ -65,17 +86,32 @@ namespace NutritionCalculator.Forms
             dgvMealItems.DataSource = null;
             dgvMealItems.DataSource = mealsController.CurrentMeal.MealItems;
         }
-
-        private void dgvMealItems_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        private void ConsistTextRefresh()
         {
             lbConsist.Text = mealsController.getEnergyValues();
             lbConsist.Text += "\n\nRecommended insulin dose: " + InsulinPlanController.GetInsulinDose(dtpMealDateTime.Value, mealsController.GetCarbohydrates());
+        }
+        private void dgvMealItems_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            ConsistTextRefresh();
         }
 
         private void btSave_Click(object sender, EventArgs e)
         {
             mealsController.CurrentMeal.LocalDateTime = dtpMealDateTime.Value;
             mealsController.SetNew();
+            MealsForm mealsForm = new MealsForm();
+            mealsForm.Show();
+            Close();
+        }
+
+        private void MealForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (viewMode)
+            {
+                MealsForm mealsForm = new MealsForm();
+                mealsForm.Show();
+            }
         }
     }
 }
