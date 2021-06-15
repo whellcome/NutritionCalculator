@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NutritionCalculator", "NutritionCalculator.csproj", "{2F4C7E1D-8BCB-425F-94B5-0E6D29A737F3}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "..\Setup\Setup.vdproj", "{20AD1B38-D1FD-4008-A3F5-DDD6936F5EA3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{2F4C7E1D-8BCB-425F-94B5-0E6D29A737F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F4C7E1D-8BCB-425F-94B5-0E6D29A737F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F4C7E1D-8BCB-425F-94B5-0E6D29A737F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20AD1B38-D1FD-4008-A3F5-DDD6936F5EA3}.Debug|Any CPU.ActiveCfg = Debug
+		{20AD1B38-D1FD-4008-A3F5-DDD6936F5EA3}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

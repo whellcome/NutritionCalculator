@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -10,7 +11,8 @@ namespace NutritionCalculator.Controllers
     {
         public List<T> Load<T>() where T : class
         {
-            var fileName = typeof(T).Name + ".json";
+            var fileName = Path.Combine(Environment.GetFolderPath(
+                Environment.SpecialFolder.ApplicationData) + "\\NutritionCalculator", typeof(T).Name + ".json");
             var items = new List<T>();
             if (File.Exists(fileName))
             {
@@ -32,7 +34,8 @@ namespace NutritionCalculator.Controllers
 
         public void Save<T>(List<T> items) where T : class
         {
-            var fileName = typeof(T).Name + ".json";
+            var fileName = Path.Combine(Environment.GetFolderPath(
+                Environment.SpecialFolder.ApplicationData) + "\\NutritionCalculator", typeof(T).Name + ".json");
             using (StreamWriter sw = new StreamWriter(fileName))
             {
                 foreach (T item in items)
